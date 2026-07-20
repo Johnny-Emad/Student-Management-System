@@ -27,59 +27,92 @@
 </form>
 
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+$isValid = false;
+
+if (!isset($_SESSION["students"])) {
+    $_SESSION["students"] = [];
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $name = $age = $grade = $score = $gender = $email = $phone = "";
 
     if (isset($_POST['name']) && strlen($_POST["name"]) >= 3) {
         $name = htmlspecialchars($_POST['name']);
     } else {
-        echo "No name given";
+        $name = $isValid;
     }
 
     if (isset($_POST['age']) && filter_var($_POST['age'], FILTER_VALIDATE_INT)) {
         if ($_POST['age'] >= 5 && $_POST['age'] <= 100) {
             $age = htmlspecialchars($_POST['age']);
         } else {
-            $age = "Non valid age given";
+            $age = $isValid;
         }
     } else {
-        echo "No age given";
+        $age = $isValid;
     }
 
     if (isset($_POST['grade'])) {
         $grade = htmlspecialchars($_POST['grade']);
     } else {
-        $grade = "No grade given";
+        $grade = $isValid;
     }
 
     if (filter_var($_POST['score'], FILTER_VALIDATE_INT) && isset($_POST['score'])) {
         if ($_POST['score'] >= 0 && $_POST['score'] <= 100) {
             $score = htmlspecialchars($_POST['score']);
         } else {
-            $score = "Non valid score given";
+            $score = $isValid;
         }
     } else {
-        $score = "No score given";
+        $score = $isValid;
     }
 
     if (isset($_POST['gender'])) {
         $gender = htmlspecialchars($_POST['gender']);
     } else {
-        $gender = "No gender given";
+        $gender = $isValid;
     }
 
     if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $email = htmlspecialchars($_POST['email']);
     } else {
-        $email = "No email given";
+        $email = $isValid;
     }
 
     if (isset($_POST['phone']) && strlen($_POST['phone']) == 11) {
-        $phone = htmlspecialchars($_POST['phone']);
+        if (is_numeric($_POST["phone"])) {
+
+            $phone = htmlspecialchars($_POST['phone']);
+        } else {
+            $phone = $isValid;
+        }
     } else {
-        $phone = "No phone number given";
+        $phone = $isValid;
+    }
+
+    if (
+        $name == $isValid ||
+        $age == $isValid ||
+        $score == $isValid ||
+        $gender == $isValid ||
+        $email == $isValid ||
+        $phone == $isValid ||
+        $grade == $isValid
+    ) {
+    } else {
+        $_SESSION["students"][] = [
+            "id" => uniqid(),
+            "name" => $name,
+            "age" =>  $age,
+            "grade" => $grade,
+            "score" => $score,
+            "gender" => $gender,
+            "email" => $email,
+            "phone" => $phone
+        ];
     }
 }
 ?>
