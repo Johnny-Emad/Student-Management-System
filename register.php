@@ -30,9 +30,6 @@
 
 $isValid = false;
 
-if (!isset($_SESSION["students"])) {
-    $_SESSION["students"] = [];
-}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
