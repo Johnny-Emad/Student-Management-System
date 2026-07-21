@@ -22,7 +22,12 @@
                     <td><?= $_SESSION["students"][$i]["email"] ?></td>
                     <td><?= $_SESSION["students"][$i]["age"] ?></td>
                     <td><?= $_SESSION["students"][$i]["grade"] ?></td>
-                    <td><?= $_SESSION["students"][$i]["score"] ?></td>
+                    <td>
+                        <form action="/edit.php" method="GET">
+                            <input type="hidden" value="<?= $_SESSION["students"][$i]["id"] ?>" name="id">
+                            <input type="submit" name="eddit" value="Eddit">
+                        </form>
+                    </td>
                     <td>
                         <?php
                         calcStats($i);
