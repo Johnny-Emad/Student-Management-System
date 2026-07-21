@@ -1,15 +1,12 @@
-<?php require_once("includes/header.php"); ?>
-<?php
-if (isset($_GET["id"])) {
-    foreach ($_SESSION["students"] as $index => $student) {
-        if ($student["id"] == $_GET["id"]) {
-            unset($_SESSION["students"][$index]);
-            break;
-        }
-    }
-}
-
-header("Location: students.php");
-exit;
-?>
-<?php require_once("includes/footer.php"); ?>
+<?php require_once("includes/header.php") ?>
+<div class="row justify-content-center">
+    <div class="col-12 col-lg-8">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="h3 mb-3">Delete Student</h1>
+                <p class="text-muted mb-0">Delete functionality will be handled in a future update.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<?php require_once("includes/footer.php") ?>

@@ -3,9 +3,11 @@
 function calcStats(int $number)
 {
     $score = $_SESSION["students"][$number]["score"];
-    $label = $score >= 50 ? "Pass" : "Fail";
-    $badgeClass = $score >= 50 ? "text-bg-light" : "text-bg-secondary";
-    echo "<span class='badge {$badgeClass}'>{$label}</span>";
+    if ($score >= 50) {
+        echo "<span class='badge text-bg-success'>Pass</span>";
+    } else {
+        echo "<span class='badge text-bg-danger'>Fail</span>";
+    }
 }
 
 function getAllStudents()
@@ -19,6 +21,7 @@ function getAllStudents()
 
 function calcAverage()
 {
+
     $total = 0;
     $numOfStudents = count($_SESSION["students"]);
     $finalNum = "";
@@ -68,4 +71,3 @@ function getPassers()
 
     return $passers;
 }
-?>
