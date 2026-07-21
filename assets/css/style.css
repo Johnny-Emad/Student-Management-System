@@ -1,0 +1,9 @@
+:root {
+  color-scheme: dark light;
+}
+
+body {
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}

@@ -1,7 +1,7 @@
 <?php require_once("includes/header.php"); ?>
 <div class="row justify-content-center">
     <div class="col-12 col-lg-8">
-        <div class="card">
+        <div class="card border-secondary">
             <div class="card-body">
                 <h1 class="h3 mb-3">Welcome</h1>
                 <p class="lead mb-4">Manage student records from one place using the Bootstrap-based navigation and layout.</p>

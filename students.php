@@ -39,7 +39,11 @@
                                 <td>
                                     <form action="/edit.php" method="GET" class="d-inline">
                                         <input type="hidden" value="<?= $_SESSION["students"][$i]["id"] ?>" name="id">
-                                        <input type="submit" name="eddit" value="Eddit" class="btn btn-outline-secondary btn-sm">
+                                        <input type="submit" name="eddit" value="Edit" class="btn btn-outline-secondary btn-sm">
+                                    </form>
+                                    <form action="delete.php" method="GET" class="d-inline">
+                                        <input type="hidden" value="<?= $_SESSION["students"][$i]["id"] ?>" name="id">
+                                        <input type="submit" name="eddit" value="Delete" class="btn btn-outline-secondary btn-sm">
                                     </form>
                                 </td>
                             </tr>

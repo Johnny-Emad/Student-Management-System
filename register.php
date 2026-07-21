@@ -2,7 +2,7 @@
 
 <div class="row justify-content-center">
     <div class="col-12 col-lg-8">
-        <div class="card">
+        <div class="card border-secondary">
             <div class="card-body">
                 <h1 class="h3 mb-4">Register Student</h1>
                 <form action="./register.php" method="POST" class="row g-3">
