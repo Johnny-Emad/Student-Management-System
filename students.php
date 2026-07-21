@@ -1,4 +1,5 @@
 ﻿<?php require_once("includes/header.php"); ?>
+<?php require_once("includes/functions.php"); ?>
 <?php  ?>
 <table>
     <thead>
@@ -24,12 +25,7 @@
                     <td><?= $_SESSION["students"][$i]["score"] ?></td>
                     <td>
                         <?php
-                        $score = $_SESSION["students"][$i]["score"];
-                        if ($score >= 50) {
-                            echo "<span style='color: green; font-weight: bold;'>Pass</span>";
-                        } else {
-                            echo "<span style='color: red; font-weight: bold;'>Fail</span>";
-                        }
+                        calcStats($i);
                         ?>
                     </td>
                     <td><?= $_SESSION["students"][$i]["phone"] ?></td>
