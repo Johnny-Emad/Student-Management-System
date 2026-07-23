@@ -6,37 +6,23 @@ function setTheme(theme) {
   const themeToggle = document.getElementById("themeToggle");
 
   root.setAttribute("data-bs-theme", theme);
-  root.style.colorScheme = theme;
-  document.body.classList.remove("theme-light", "theme-dark");
-  document.body.classList.add(theme === "dark" ? "theme-dark" : "theme-light");
+  document.body.classList.toggle("theme-light", theme === "light");
+  document.body.classList.toggle("theme-dark", theme === "dark");
 
   if (navbar) {
     if (theme === "dark") {
       navbar.classList.add("navbar-dark", "bg-dark");
-      navbar.classList.remove(
-        "navbar-light",
-        "bg-light",
-        "bg-white",
-        "bg-body-tertiary",
-      );
+      navbar.classList.remove("navbar-light", "bg-light", "bg-body-tertiary");
     } else {
-      navbar.classList.add("navbar-light", "bg-white");
-      navbar.classList.remove(
-        "navbar-dark",
-        "bg-dark",
-        "bg-light",
-        "bg-body-tertiary",
-      );
+      navbar.classList.add("navbar-light", "bg-light");
+      navbar.classList.remove("navbar-dark", "bg-dark", "bg-body-tertiary");
     }
   }
 
   if (themeToggle) {
-    themeToggle.innerHTML =
-      theme === "dark"
-        ? '<span aria-hidden="true">☀️</span><span class="d-none d-sm-inline">Light Mode</span>'
-        : '<span aria-hidden="true">🌙</span><span class="d-none d-sm-inline">Dark Mode</span>';
+    themeToggle.textContent = theme === "dark" ? "Light Mode" : "Dark Mode";
     themeToggle.classList.toggle("btn-outline-light", theme === "dark");
-    themeToggle.classList.toggle("btn-outline-secondary", theme === "light");
+    themeToggle.classList.toggle("btn-outline-dark", theme === "light");
     themeToggle.classList.add("btn-sm");
   }
 
@@ -44,12 +30,8 @@ function setTheme(theme) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const savedTheme = localStorage.getItem(storageKey);
-  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-  const initialTheme = savedTheme || systemTheme;
-  setTheme(initialTheme);
+  const savedTheme = localStorage.getItem(storageKey) || "dark";
+  setTheme(savedTheme);
 
   const themeToggle = document.getElementById("themeToggle");
   themeToggle?.addEventListener("click", () => {

@@ -10,6 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])) {
         if ($_GET["id"] == $_SESSION["students"][$i]["id"]) {
 
             unset($_SESSION["students"][$i]);
+            $_SESSION["students"] = array_values($_SESSION["students"]);
 
             header("Location: students.php");
             exit;

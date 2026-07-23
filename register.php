@@ -7,16 +7,16 @@
                 <h1 class="h3 mb-4">Register Student</h1>
                 <form action="./register.php" method="POST" class="row g-3">
                     <div class="col-12 col-md-6">
-                        <input class="form-control" type="text" name="name" placeholder="Enter student's name" required>
+                        <input class="form-control" type="text" name="name" placeholder="Enter your name" required>
                     </div>
                     <div class="col-12 col-md-6">
-                        <input class="form-control" type="email" name="email" placeholder="Enter student's email" required>
+                        <input class="form-control" type="email" name="email" placeholder="Enter your email" required>
                     </div>
                     <div class="col-12 col-md-6">
-                        <input class="form-control" type="tel" name="phone" placeholder="Enter student's phone number" required />
+                        <input class="form-control" type="tel" name="phone" placeholder="Enter your phone number" required />
                     </div>
                     <div class="col-12 col-md-6">
-                        <input class="form-control" type="number" name="age" placeholder="Enter student's age" min=5 max=100 required>
+                        <input class="form-control" type="number" name="age" placeholder="Enter your age" min=5 max=100 required>
                     </div>
                     <div class="col-12 col-md-6">
                         <select class="form-select" name="grade" required>
@@ -28,7 +28,7 @@
                         </select>
                     </div>
                     <div class="col-12 col-md-6">
-                        <input class="form-control" type="number" name="score" placeholder="Enter student's score" min=0 max=100 required>
+                        <input class="form-control" type="number" name="score" placeholder="Enter your score" min=0 max=100 required>
                     </div>
                     <div class="col-12">
                         <div class="d-flex flex-column flex-md-row gap-3">

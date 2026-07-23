@@ -12,16 +12,16 @@
                 ?>
                             <form action="./edit.php" method="POST" class="row g-3">
                                 <div class="col-12 col-md-6">
-                                    <input class="form-control" type="text" name="name" placeholder="Enter student's name" value="<?= $_SESSION["students"][$i]["name"] ?>" required>
+                                    <input class="form-control" type="text" name="name" placeholder="Enter your name" value="<?= $_SESSION["students"][$i]["name"] ?>" required>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <input class="form-control" type="email" name="email" placeholder="Enter student's email" value="<?= $_SESSION["students"][$i]["email"] ?>" required>
+                                    <input class="form-control" type="email" name="email" placeholder="Enter your email" value="<?= $_SESSION["students"][$i]["email"] ?>" required>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <input class="form-control" type="tel" name="phone" placeholder="Enter student's phone number" value="<?= $_SESSION["students"][$i]["phone"] ?>" required />
+                                    <input class="form-control" type="tel" name="phone" placeholder="Enter your phone number" value="<?= $_SESSION["students"][$i]["phone"] ?>" required />
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <input class="form-control" type="number" name="age" placeholder="Enter student's age" min=5 max=100 value="<?= $_SESSION["students"][$i]["age"] ?>" required>
+                                    <input class="form-control" type="number" name="age" placeholder="Enter your age" min=5 max=100 value="<?= $_SESSION["students"][$i]["age"] ?>" required>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <select class="form-select" name="grade" required>
@@ -82,7 +82,7 @@
                                     </select>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <input class="form-control" type="number" name="score" placeholder="Enter student's score" min=0 max=100 value="<?= $_SESSION["students"][$i]["score"] ?>" required>
+                                    <input class="form-control" type="number" name="score" placeholder="Enter your score" min=0 max=100 value="<?= $_SESSION["students"][$i]["score"] ?>" required>
                                 </div>
                                 <div class="col-12">
                                     <div class="d-flex flex-column flex-md-row gap-3">
